@@ -109,6 +109,7 @@ export type WebSocketHeaderHandler<
 export type ElysiaWSOptions<
 	Path extends string,
 	Schema extends WSTypedSchema<any>,
+	Instance extends ElysiaInstance<any>,
 	Definitions extends ElysiaInstance['meta'][typeof DEFS]
 > = Omit<
 	Partial<WebSocketHandler<Context>>,
@@ -116,7 +117,7 @@ export type ElysiaWSOptions<
 > &
 	(ElysiaWS<ElysiaWSContext<Schema, Definitions, Path>> extends infer WS
 		? Partial<Schema> & {
-				beforeHandle?: WithArray<HookHandler<Schema>>
+				beforeHandle?: WithArray<HookHandler<Schema, Instance, Path>>
 				transform?: WithArray<
 					NoReturnHandler<TypedWSSchemaToRoute<Schema>>
 				>

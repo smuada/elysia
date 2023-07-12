@@ -2188,7 +2188,7 @@ export default class Elysia<Instance extends ElysiaInstance = ElysiaInstance> {
 		options: Path extends ''
 			? never
 			: this extends Elysia<infer Instance>
-			? ElysiaWSOptions<Path, Schema, Instance['meta'][typeof DEFS]>
+			? ElysiaWSOptions<Path, Schema, Instance, Instance['meta'][typeof DEFS]>
 			: never
 	): Elysia<{
 		request: Instance['request']

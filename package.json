@@ -1,7 +1,7 @@
 {
-  "name": "elysia",
+  "name": "@smuada/elysia",
   "description": "Fast, and friendly Bun web framework",
-  "version": "0.5.22",
+  "version": "0.5.23",
   "author": {
     "name": "saltyAom",
     "url": "https://github.com/SaltyAom",
@@ -106,7 +106,7 @@
     "release": "npm run release:test && npm run release:github",
     "release:test": "npm run build && npm run test",
     "release:github": "bumpp package.json --commit --push --tag",
-    "release:local": "npm run build && npm run test && npm publish"
+    "release:local": "npm run build && npm run test && npm publish --access public"
   },
   "dependencies": {
     "@sinclair/typebox": "^0.28.10",
